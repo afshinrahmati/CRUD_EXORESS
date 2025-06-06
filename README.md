@@ -55,3 +55,30 @@ docker-compose up
 dokcer 
 ```swagger
 https://github.com/your-username/task-manager-api.git
+
+```
+# CLIEDN
+Client/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── Header.vue
+│   │   ├── TaskForm.vue
+│   │   └── TaskList.vue
+│   ├── views/
+│   │   ├── LoginPage.vue
+│   │   ├── SignupPage.vue
+│   │   └── TaskPage.vue
+│   ├── router/
+│   │   └── index.js
+│   ├── App.vue
+│   └── main.js
+├── package.json
+└── vite.config.js
+
+```bash
+cd Client
+npm install
+npm run dev
+axios.defaults.baseURL = 'http://localhost:3000/api'

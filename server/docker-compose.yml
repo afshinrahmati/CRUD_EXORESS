@@ -6,7 +6,7 @@ services:
     container_name: task-manager-api
     restart: unless-stopped
     env_file:
-      - .env
+      - .env.docker
     ports:
       - "3000:3000"
     depends_on:
@@ -17,18 +17,24 @@ services:
       - .:/app
 
   mongo:
-    image: mongo:6.0
-    container_name: task-manager-db
-    restart: unless-stopped
-    volumes:
-      - mongo-data:/data/db
+    image: mongo
     ports:
       - "27017:27017"
+    command: [ "mongod", "--auth" ]
+    volumes:
+      - mongo_data:/data/db
     networks:
       - task-net
+    environment:
+      - MONGO_INITDB_DATABASE=es1
+    healthcheck:
+      test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
 volumes:
-  mongo-data:
+  mongo_data:
 
 networks:
   task-net:

@@ -1,3 +1,4 @@
+import {Error} from "mongoose";
 class ApiError extends Error {
   constructor(statusCode, message, errors = []) {
     super(message);

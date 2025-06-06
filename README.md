@@ -51,3 +51,7 @@ A full-featured RESTful API for task management built with **Node.js**, **Expres
 ```bash
 git clone https://github.com/your-username/task-manager-api.git
 cd task-manager-api
+docker-compose up
+dokcer 
+```swagger
+https://github.com/your-username/task-manager-api.git
